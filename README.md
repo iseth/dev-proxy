@@ -64,3 +64,6 @@ address=/.testss/127.0.0.1
 listen-address=127.0.0.1
 ```
 
+### Using caddy:
+https://medium.com/@devahmedshendy/traditional-setup-run-local-development-over-https-using-caddy-964884e75232
+https://github.com/FiloSottile/mkcert
