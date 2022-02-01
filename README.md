@@ -72,7 +72,11 @@ listen-address=127.0.0.1
 #### 1. Make sure caddy is installed
 1. Install Caddy: https://caddyserver.com/docs/install#debian-ubuntu-raspbian
 2. Install homebrew (brew.sh)
-3. Install mkcert with brew: `brew install mkcert`
+3. Install
+```
+sudo apt install -y libnss3-tools
+```
+6. Install mkcert with brew: `brew install mkcert`
 
 #### 2. Make a server dir
 ```bash
@@ -99,5 +103,9 @@ mkcert "statecert.test"
 }
 ```
 
+#### 5. Start Caddy
+```
+caddy run
+```
 https://medium.com/@devahmedshendy/traditional-setup-run-local-development-over-https-using-caddy-964884e75232
 https://github.com/FiloSottile/mkcert
