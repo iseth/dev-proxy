@@ -3,7 +3,8 @@
 On ubuntu 20 `lsb_release -r |cut -f 2 |cut -d '.' -f 1`
 #### 1. We need to first stop the default dns manager which is usually `systemd-resolved`
 ```bash
-service systemd-resolved stop
+# this needs to be done as sudo because systemd starts and owns the process
+sudo service systemd-resolved stop
 ```
 if you cannot figure out what is the current dns manager try looking up what is using port `53` and stop it
 ```
