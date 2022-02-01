@@ -97,8 +97,13 @@ mkcert "statecert.test"
 #### 4. Create a `Caddyfile` with the following contents
 
 ```
-*.statecert.test, statecert.test {
-	tls ./certs/_wildcard.foo.bar.pem ./certs/_wildcard.foo.bar-key.pem
+*.statecert.test {
+	tls ./certs/_wildcard.statecert.test.pem ./certs/_wildcard.statecert.test-key.pem
+	reverse_proxy localhost:3000
+}
+
+statecert.test {
+	tls ./certs/statecert.test.pem ./certs/statecert.test-key.pem
 	reverse_proxy localhost:3000
 }
 ```
