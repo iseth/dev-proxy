@@ -46,6 +46,9 @@ sudo mkdir -p /etc/resolver && sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/
 # DNSMasq config details
 #### 1. find `/etc/dnsmasq.conf` and make sure that the line which contains the following is uncommented like the following:
 ```
+# add google dns server so that we still have internet
+server=8.8.8.8
+
 # Include all files in a directory which end in .conf
 conf-dir=/usr/local/etc/dnsmasq.d/,*.conf
 ```
