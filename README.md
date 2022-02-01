@@ -68,6 +68,36 @@ address=/.testss/127.0.0.1
 listen-address=127.0.0.1
 ```
 
-### Using caddy:
+### Setting up caddy:
+#### 1. Make sure caddy is installed
+1. Install Caddy: https://caddyserver.com/docs/install#debian-ubuntu-raspbian
+2. Install homebrew (brew.sh)
+3. Install mkcert with brew: `brew install mkcert`
+
+#### 2. Make a server dir
+```bash
+mkdir ~/.sc_proxy && cd ~/.sc_proxy
+```
+#### 3. Create a new trusted mkcert certificate
+```bash
+# Create local Certificate Authority:
+mkcert -install
+```
+generate certificates
+```bash
+mkdir ./certs && cd ./certs
+mkcert "*.statecert.test"
+mkcert "statecert.test"
+```
+
+#### 4. Create a `Caddyfile` with the following contents
+
+```
+*.statecert.test, statecert.test {
+	tls ./certs/_wildcard.foo.bar.pem ./certs/_wildcard.foo.bar-key.pem
+	reverse_proxy localhost:3000
+}
+```
+
 https://medium.com/@devahmedshendy/traditional-setup-run-local-development-over-https-using-caddy-964884e75232
 https://github.com/FiloSottile/mkcert
